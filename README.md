@@ -53,10 +53,9 @@ game/Dockerfile
 ```bash
 docker build -t seymausta1/2048-game:latest ./game
 ```
-### 3 — Create a KIND cluster (Ingress-ready)
+### 3 — Create a KIND cluster
 
-This project includes a preconfigured KIND cluster configuration file
-(`kind-config.yaml`) to enable Ingress and direct access via port 80/443.
+The repository includes a ready-to-use kind-config.yaml configuration that allows the cluster to be created with Ingress support and direct access via ports 80 and 443.
 
 Create the cluster using:
 
