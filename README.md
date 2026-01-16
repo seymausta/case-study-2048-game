@@ -1,6 +1,6 @@
 # Migros One DevOps Case Study - 2048 Game 
 
-This project demonstrates deploying the classic 2048 game using Docker and Kubernetes (KIND + Ingress).
+This project demonstrates deploying the classic 2048 game using Docker and Kubernetes.
 
 Docker Image: 
 
@@ -34,7 +34,10 @@ You need the following software to run this project:
 - Docker
 - kubectl
 - KIND
-- Nginx Ingress Controller
+
+Additionally, the repo uses:
+
+- Nginx Ingress Controller (installed inside the KIND cluster)
 
 ## Setup
 
