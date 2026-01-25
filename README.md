@@ -66,11 +66,6 @@ Create the cluster using:
 kind create cluster --name 2048-game --config kind-config.yaml
 ```
 
-### 3- Create a KIND cluster
-
-```bash
-kind create cluster --name 2048-game
-```
 
 ### 4- Install Nginx Ingress Controller
 
