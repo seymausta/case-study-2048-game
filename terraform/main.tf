@@ -1,99 +1,25 @@
-resource "kubernetes_namespace" "game" {
-  metadata {
-    name = "game"
+module "deployment" {
+  source = "./modules/deployment"
+
+  namespace_name = local.namespace
+
+  deployment_name = "game-2048-deployment"
+  replicas        = 1
+  labels          = { app = "game-2048" }
+
+  container_name  = "game"
+  container_image = "seymausta1/2048-game:latest"
+  container_port  = 80
+
+  service_name = "game-2048-service"
+  service_port = 80
+  target_port  = 80
+  service_type = "ClusterIP"
+
+  ingress_name = "game-2048-ingress"
+  host         = "2048.local"
+
+  annotations = {
+    "kubernetes.io/ingress.class" = "nginx"
   }
-}
-resource "kubernetes_deployment" "game_2048" {
-  metadata {
-    name = "game-2048-deployment"  
-    namespace = kubernetes_namespace.game.metadata[0].name 
-    labels = {
-      app = "game-2048"              
-    }
-  }
-
-  spec {
-    replicas = 1
-
-    selector {
-      match_labels = {
-        app = "game-2048"           
-      }
-    }
-
-    template {
-      metadata {
-        labels = {
-          app = "game-2048"          
-        }
-      }
-
-      spec {
-        container {
-          image = "seymausta1/2048-game:latest"
-          name  = "game-2048-container"
-
-          port {
-            container_port = 80
-          }
-        }
-      }
-    }
-  }
-}
-
-resource "kubernetes_service_v1" "game_2048_service" {
-  metadata {
-    name = "game-2048-service"     
-    namespace = kubernetes_namespace.game.metadata[0].name 
-  }
-
-  spec {
-    selector = {
-      app = "game-2048"             
-    }
-
-    port {
-      port        = 80
-      target_port = 80
-    }
-
-    type = "NodePort"
-  }
-}
-
-resource "kubernetes_ingress_v1" "game_2048_ingress" {
-  metadata {
-    name      = "game-2048-ingress"
-    namespace = kubernetes_namespace.game.metadata[0].name
-    annotations = {
-      "nginx.ingress.kubernetes.io/rewrite-target" = "/"
-    }
-  }
-
-  spec {
-    rule {
-      host = "2048.local"
-      http {
-        path {
-          path      = "/"
-          path_type = "Prefix"
-          backend {
-            service {
-              name = kubernetes_service_v1.game_2048_service.metadata[0].name
-              port {
-                number = 80
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-module "namespace" {
-  source = "./modules/namespace"
-
-  namespace_name = var.namespace
 }

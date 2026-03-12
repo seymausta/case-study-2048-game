@@ -1,7 +1,7 @@
 resource "kubernetes_ingress_v1" "this" {
   metadata {
-    name        = var.name
-    namespace   = var.namespace
+    name        = var.ingress_name
+    namespace   = var.namespace_name
     annotations = var.annotations
   }
 
@@ -11,7 +11,7 @@ resource "kubernetes_ingress_v1" "this" {
 
       http {
         path {
-          path     = "/"
+          path      = "/"
           path_type = "Prefix"
 
           backend {
