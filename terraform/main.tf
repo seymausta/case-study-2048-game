@@ -8,7 +8,7 @@ module "deployment" {
   labels          = { app = "game-2048" }
 
   container_name  = "game"
-  container_image = "seymausta/2048:latest"
+  container_image = "seymausta1/2048-game:latest"
   container_port  = 80
 
   service_name = "game-2048-service"
@@ -17,7 +17,7 @@ module "deployment" {
   service_type = "ClusterIP"
 
   ingress_name = "game-2048-ingress"
-  host         = "2048.example.com"
+  host         = "2048.local"
 
   annotations = {
     "kubernetes.io/ingress.class" = "nginx"
