@@ -91,3 +91,9 @@ resource "kubernetes_ingress_v1" "game_2048_ingress" {
     }
   }
 }
+
+module "namespace" {
+  source = "./modules/namespace"
+
+  namespace_name = var.namespace
+}
