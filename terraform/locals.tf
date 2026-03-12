@@ -1,5 +1,5 @@
 locals {
-  #name="game-2048"
   namespace = "game-2048"
+  host="2048.local"
 }
 
