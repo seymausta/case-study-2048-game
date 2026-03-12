@@ -58,7 +58,7 @@ variable "ingress_name" {
 }
 
 variable "host" {
-  type = string
+  type        = string
   description = "Host for the ingress"
 }
 

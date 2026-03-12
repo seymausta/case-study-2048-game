@@ -11,7 +11,7 @@ resource "kubernetes_ingress_v1" "this" {
 
       http {
         path {
-          path     = "/"
+          path      = "/"
           path_type = "Prefix"
 
           backend {

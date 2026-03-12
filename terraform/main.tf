@@ -3,7 +3,7 @@ module "deployment" {
 
   namespace_name = local.namespace
 
-  deployment_name            = "game-2048-deployment"
+  deployment_name = "game-2048-deployment"
   replicas        = 1
   labels          = { app = "game-2048" }
 
