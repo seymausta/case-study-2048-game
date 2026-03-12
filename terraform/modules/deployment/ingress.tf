@@ -7,7 +7,7 @@ resource "kubernetes_ingress_v1" "this" {
 
   spec {
     rule {
-      host = var.host
+      host = "2048.local"
 
       http {
         path {
