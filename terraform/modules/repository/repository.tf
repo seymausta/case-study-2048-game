@@ -1,8 +1,6 @@
 module "repository_test" {
   source = "/Users/seymanurusta/projects/terraform-modules/github/modules/repository"
 
-  #token = var.github_token
-  #owner = var.github_owner
 
   name                   = var.name
   description            = var.description
