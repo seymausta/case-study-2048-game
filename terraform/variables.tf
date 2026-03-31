@@ -39,7 +39,7 @@ variable "homepage_url" {
 variable "private" {
   description = "Repository private"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "has_issues" {
@@ -51,7 +51,7 @@ variable "has_issues" {
 variable "has_wiki" {
   description = "Repository has wiki"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "is_template" {
@@ -60,7 +60,7 @@ variable "is_template" {
   default     = false
 }
 
-variable "gitignore_template" {
+variable "gitignore_template" {  
   description = "Repository gitignore template"
   type        = string
   default     = ""

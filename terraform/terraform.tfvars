@@ -1,5 +1,5 @@
 host = "2048.local"
 namespace = "game-2048"
 github_owner = "seymausta"
-name         = "test-repo"
+name         = "test-repo-v2"
 description  = "Terraform ile repo oluşturma testi"
