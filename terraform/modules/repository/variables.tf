@@ -1,22 +1,3 @@
-variable "namespace" {
-  description = "Kubernetes namespace"
-  type        = string
-}
-
-variable "host" {
-  description = "Ingress host"
-  type        = string
-}
-
-variable "github_token" {
-  description = "GitHub token"
-  type        = string
-  sensitive   = true
-}
-variable "github_owner" {
-  type = string
-}
-
 #---------------------create repo--------------------------
 
 variable "name" {
@@ -60,7 +41,7 @@ variable "is_template" {
   default     = false
 }
 
-variable "gitignore_template" {
+variable "gitignore_template" {  
   description = "Repository gitignore template"
   type        = string
   default     = ""
@@ -200,4 +181,3 @@ variable "admin_collaborators" {
   type        = list(string)
   default     = []
 }
-

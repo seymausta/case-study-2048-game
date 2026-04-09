@@ -1,0 +1,420 @@
+{
+  "version": 4,
+  "terraform_version": "1.5.7",
+  "serial": 91,
+  "lineage": "6546d7ac-a842-38cb-237e-c760de8c938d",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "module.deployment",
+      "mode": "managed",
+      "type": "kubernetes_deployment_v1",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "game-2048/game-2048-deployment",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 1,
+                "labels": {
+                  "app": "game-2048"
+                },
+                "name": "game-2048-deployment",
+                "namespace": "game-2048",
+                "resource_version": "574",
+                "uid": "9193ae31-ff1c-4d9f-b103-ed10cbe0eb7c"
+              }
+            ],
+            "spec": [
+              {
+                "min_ready_seconds": 0,
+                "paused": false,
+                "progress_deadline_seconds": 600,
+                "replicas": "1",
+                "revision_history_limit": 10,
+                "selector": [
+                  {
+                    "match_expressions": [],
+                    "match_labels": {
+                      "app": "game-2048"
+                    }
+                  }
+                ],
+                "strategy": [
+                  {
+                    "rolling_update": [
+                      {
+                        "max_surge": "25%",
+                        "max_unavailable": "25%"
+                      }
+                    ],
+                    "type": "RollingUpdate"
+                  }
+                ],
+                "template": [
+                  {
+                    "metadata": [
+                      {
+                        "annotations": {},
+                        "generate_name": "",
+                        "generation": 0,
+                        "labels": {
+                          "app": "game-2048"
+                        },
+                        "name": "",
+                        "namespace": "",
+                        "resource_version": "",
+                        "uid": ""
+                      }
+                    ],
+                    "spec": [
+                      {
+                        "active_deadline_seconds": 0,
+                        "affinity": [],
+                        "automount_service_account_token": true,
+                        "container": [
+                          {
+                            "args": [],
+                            "command": [],
+                            "env": [],
+                            "env_from": [],
+                            "image": "seymausta1/2048-game:latest",
+                            "image_pull_policy": "Always",
+                            "lifecycle": [],
+                            "liveness_probe": [],
+                            "name": "game",
+                            "port": [
+                              {
+                                "container_port": 80,
+                                "host_ip": "",
+                                "host_port": 0,
+                                "name": "",
+                                "protocol": "TCP"
+                              }
+                            ],
+                            "readiness_probe": [],
+                            "resources": [
+                              {
+                                "limits": {},
+                                "requests": {}
+                              }
+                            ],
+                            "restart_policy": "",
+                            "security_context": [],
+                            "startup_probe": [],
+                            "stdin": false,
+                            "stdin_once": false,
+                            "termination_message_path": "/dev/termination-log",
+                            "termination_message_policy": "File",
+                            "tty": false,
+                            "volume_device": [],
+                            "volume_mount": [],
+                            "working_dir": ""
+                          }
+                        ],
+                        "dns_config": [],
+                        "dns_policy": "ClusterFirst",
+                        "enable_service_links": true,
+                        "host_aliases": [],
+                        "host_ipc": false,
+                        "host_network": false,
+                        "host_pid": false,
+                        "hostname": "",
+                        "image_pull_secrets": [],
+                        "init_container": [],
+                        "node_name": "",
+                        "node_selector": {},
+                        "os": [],
+                        "priority_class_name": "",
+                        "readiness_gate": [],
+                        "restart_policy": "Always",
+                        "runtime_class_name": "",
+                        "scheduler_name": "default-scheduler",
+                        "security_context": [],
+                        "service_account_name": "",
+                        "share_process_namespace": false,
+                        "subdomain": "",
+                        "termination_grace_period_seconds": 30,
+                        "toleration": [],
+                        "topology_spread_constraint": [],
+                        "volume": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "timeouts": null,
+            "wait_for_rollout": true
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9"
+        }
+      ]
+    },
+    {
+      "module": "module.deployment",
+      "mode": "managed",
+      "type": "kubernetes_ingress_v1",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "game-2048/game-2048-ingress",
+            "metadata": [
+              {
+                "annotations": {
+                  "kubernetes.io/ingress.class": "nginx"
+                },
+                "generate_name": "",
+                "generation": 1,
+                "labels": {},
+                "name": "game-2048-ingress",
+                "namespace": "game-2048",
+                "resource_version": "547",
+                "uid": "8a227b6b-bfcd-49b8-85fc-2f85ea2eba66"
+              }
+            ],
+            "spec": [
+              {
+                "default_backend": [],
+                "ingress_class_name": "",
+                "rule": [
+                  {
+                    "host": "2048.local",
+                    "http": [
+                      {
+                        "path": [
+                          {
+                            "backend": [
+                              {
+                                "resource": [],
+                                "service": [
+                                  {
+                                    "name": "game-2048-service",
+                                    "port": [
+                                      {
+                                        "name": "",
+                                        "number": 80
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            "path": "/",
+                            "path_type": "Prefix"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "tls": []
+              }
+            ],
+            "status": [
+              {
+                "load_balancer": [
+                  {
+                    "ingress": []
+                  }
+                ]
+              }
+            ],
+            "timeouts": null,
+            "wait_for_load_balancer": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.deployment",
+      "mode": "managed",
+      "type": "kubernetes_namespace",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "game-2048",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "game-2048",
+                "resource_version": "531",
+                "uid": "355f09b4-be46-4fe7-a622-e2814f1b6cb1"
+              }
+            ],
+            "timeouts": null,
+            "wait_for_default_service_account": false
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.deployment",
+      "mode": "managed",
+      "type": "kubernetes_service_v1",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "game-2048/game-2048-service",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "game-2048-service",
+                "namespace": "game-2048",
+                "resource_version": "549",
+                "uid": "104af1c0-4ccb-46ea-abf2-3c4f5266dfae"
+              }
+            ],
+            "spec": [
+              {
+                "allocate_load_balancer_node_ports": true,
+                "cluster_ip": "10.96.88.159",
+                "cluster_ips": [
+                  "10.96.88.159"
+                ],
+                "external_ips": [],
+                "external_name": "",
+                "external_traffic_policy": "",
+                "health_check_node_port": 0,
+                "internal_traffic_policy": "Cluster",
+                "ip_families": [
+                  "IPv4"
+                ],
+                "ip_family_policy": "SingleStack",
+                "load_balancer_class": "",
+                "load_balancer_ip": "",
+                "load_balancer_source_ranges": [],
+                "port": [
+                  {
+                    "app_protocol": "",
+                    "name": "",
+                    "node_port": 0,
+                    "port": 80,
+                    "protocol": "TCP",
+                    "target_port": "80"
+                  }
+                ],
+                "publish_not_ready_addresses": false,
+                "selector": {
+                  "app": "game-2048"
+                },
+                "session_affinity": "None",
+                "session_affinity_config": [],
+                "type": "ClusterIP"
+              }
+            ],
+            "status": [
+              {
+                "load_balancer": [
+                  {
+                    "ingress": []
+                  }
+                ]
+              }
+            ],
+            "timeouts": null,
+            "wait_for_load_balancer": true
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9LCJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.repository_test",
+      "mode": "managed",
+      "type": "github_repository",
+      "name": "repository",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "status": "tainted",
+          "schema_version": 1,
+          "attributes": {
+            "allow_auto_merge": false,
+            "allow_merge_commit": false,
+            "allow_rebase_merge": true,
+            "allow_squash_merge": true,
+            "allow_update_branch": true,
+            "archive_on_destroy": true,
+            "archived": false,
+            "auto_init": true,
+            "default_branch": null,
+            "delete_branch_on_merge": true,
+            "description": "Terraform ile repo oluşturma testi",
+            "etag": null,
+            "full_name": null,
+            "git_clone_url": null,
+            "gitignore_template": "",
+            "has_discussions": null,
+            "has_downloads": true,
+            "has_issues": true,
+            "has_projects": true,
+            "has_wiki": true,
+            "homepage_url": "",
+            "html_url": null,
+            "http_clone_url": null,
+            "id": "test-repo",
+            "ignore_vulnerability_alerts_during_read": null,
+            "is_template": false,
+            "license_template": "",
+            "merge_commit_message": "PR_TITLE",
+            "merge_commit_title": "MERGE_MESSAGE",
+            "name": "test-repo",
+            "node_id": null,
+            "pages": [],
+            "primary_language": null,
+            "private": null,
+            "repo_id": null,
+            "security_and_analysis": null,
+            "squash_merge_commit_message": "COMMIT_MESSAGES",
+            "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+            "ssh_clone_url": null,
+            "svn_url": null,
+            "template": [],
+            "topics": [],
+            "visibility": "private",
+            "vulnerability_alerts": false,
+            "web_commit_signoff_required": false
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.repository_test",
+      "mode": "managed",
+      "type": "github_repository_ruleset",
+      "name": "copilot_ruleset",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": []
+    }
+  ],
+  "check_results": null
+}
